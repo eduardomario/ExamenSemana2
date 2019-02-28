@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"> 
+    <changeSet author="Eduardo" id="20190228-1">
+        <createTable tableName="Songs">
+            <column name="Song_ID" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Title" type="VARCHAR(25)">
+                <constraints nullable="false" primaryKey="false" unique="true"/>
+            </column>
+            <column name="Album_ID" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Duration" type="TIME">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Genre_ID" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Artist_ID" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="DayRelease" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="MonthRelease" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="YearRelease" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-2">
+        <createTable tableName="Artists">
+            <column name="Artist_ID" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="FirstName" type="VARCHAR(25)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="LastName" type="VARCHAR(25)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="NickName" type="VARCHAR(25)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Nationality_ID" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-3">
+        <createTable tableName="Albums">
+            <column name="Album_ID" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="DayRelease" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="MonthRelease" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="YearRelease" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-4">
+        <createTable tableName="Genres">
+            <column name="Genre_ID" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(15)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>      
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-5">
+        <createTable tableName="Nationalities">
+            <column name="Nationality_ID" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(15)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>      
+        </createTable>
+    </changeSet>
+    
+    <changeSet author="Eduardo" id="20190228-6">
+        <addForeignKeyConstraint baseColumnNames="Nationality_ID"
+            baseTableName="Artists"
+            constraintName="FK_Nationality_ID"
+            referencedColumnNames="Nationality_ID"
+            referencedTableName="Nationalities"/>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-7">
+        <addForeignKeyConstraint baseColumnNames="Artist_ID"
+            baseTableName="Songs"
+            constraintName="FK_Artist_ID"
+            referencedColumnNames="Artist_ID"
+            referencedTableName="Artists"/>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-8">
+        <addForeignKeyConstraint baseColumnNames="Genre_ID"
+            baseTableName="Songs"
+            constraintName="FK_Genre_ID"
+            referencedColumnNames="Genre_ID"
+            referencedTableName="Genres"/>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-9">
+        <addForeignKeyConstraint baseColumnNames="Album_ID"
+            baseTableName="Songs"
+            constraintName="FK_Album_ID"
+            referencedColumnNames="Album_ID"
+            referencedTableName="Albums"/>
+    </changeSet>
+</databaseChangeLog> 
