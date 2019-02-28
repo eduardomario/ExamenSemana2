@@ -1,4 +1,5 @@
-# Liquibase modified - Eduardo Pacreu
+# Exam Liquibase - Eduardo Pacreu
+Informacion de Liquibase con: [Javier](https://github.com/IngJavierR/liquibase)
 ## Source Control for your database
 
 Es una libreria opensource para el manejo y ejecución de cambios en base de datos.
