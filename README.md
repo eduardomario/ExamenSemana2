@@ -7,7 +7,7 @@ Pienso que el patron de diseño "Strategy" es el mas adecuado para este problema
 
 Al momento en el que se le notifica al sistema que un usuario ha realizado el pago, se identifica al usuario y se le envia la canción.
 
-##Estructura
+## Estructura
 
 ![Esquema](https://raw.githubusercontent.com/eduardomario/ExamenSemana2/master/Strategy.png)
 
