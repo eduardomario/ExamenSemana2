@@ -6,6 +6,7 @@ Informacion de Liquibase con: [Ing. Javier Rodriquez](https://github.com/IngJavi
 Pienso que el patron de diseño "Strategy" es el mas adecuado para este problema, ya que este problema busca enviar a los consumidores la canción, la cual se puede interpretar como una accion que tienen en común, ya simplemente se crea una estrategia para cada cliente de como se enviara la canción.
 
 Al momento en el que se le notifica al sistema que un usuario ha realizado el pago, se identifica al usuario y se le envia la canción.
+
 ##Estructura
 
 ![Esquema](https://raw.githubusercontent.com/eduardomario/ExamenSemana2/master/Strategy.png)
