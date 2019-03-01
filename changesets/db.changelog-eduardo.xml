@@ -12,9 +12,6 @@
             <column name="Title" type="VARCHAR(25)">
                 <constraints nullable="false" primaryKey="false" unique="true"/>
             </column>
-            <column name="Album_ID" type="INT">
-                <constraints nullable="false" primaryKey="false" unique="false"/>
-            </column>
             <column name="Duration" type="TIME">
                 <constraints nullable="false" primaryKey="false" unique="false"/>
             </column>
@@ -97,8 +94,30 @@
             </column>      
         </createTable>
     </changeSet>
-    
+
     <changeSet author="Eduardo" id="20190228-6">
+        <createTable tableName="Lists">
+            <column name="Album_ID" type="INT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="List_ID" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>      
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-7">
+        <createTable tableName="List_Song">
+            <column name="List_ID" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Song_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>      
+        </createTable>
+    </changeSet>    
+    
+    <changeSet author="Eduardo" id="20190228-8">
         <addForeignKeyConstraint baseColumnNames="Nationality_ID"
             baseTableName="Artists"
             constraintName="FK_Nationality_ID"
@@ -106,7 +125,7 @@
             referencedTableName="Nationalities"/>
     </changeSet>
 
-    <changeSet author="Eduardo" id="20190228-7">
+    <changeSet author="Eduardo" id="20190228-9">
         <addForeignKeyConstraint baseColumnNames="Artist_ID"
             baseTableName="Songs"
             constraintName="FK_Artist_ID"
@@ -114,7 +133,7 @@
             referencedTableName="Artists"/>
     </changeSet>
 
-    <changeSet author="Eduardo" id="20190228-8">
+    <changeSet author="Eduardo" id="20190228-10">
         <addForeignKeyConstraint baseColumnNames="Genre_ID"
             baseTableName="Songs"
             constraintName="FK_Genre_ID"
@@ -122,11 +141,27 @@
             referencedTableName="Genres"/>
     </changeSet>
 
-    <changeSet author="Eduardo" id="20190228-9">
+    <changeSet author="Eduardo" id="20190228-11">
         <addForeignKeyConstraint baseColumnNames="Album_ID"
-            baseTableName="Songs"
+            baseTableName="Lists"
             constraintName="FK_Album_ID"
             referencedColumnNames="Album_ID"
             referencedTableName="Albums"/>
+    </changeSet>
+    
+    <changeSet author="Eduardo" id="20190228-12">
+        <addForeignKeyConstraint baseColumnNames="Song_ID"
+            baseTableName="List_Song"
+            constraintName="FK_Song_ID"
+            referencedColumnNames="Song_ID"
+            referencedTableName="Songs"/>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190228-13">
+        <addForeignKeyConstraint baseColumnNames="List_ID"
+            baseTableName="Lists"
+            constraintName="FK_List_ID"
+            referencedColumnNames="List_ID"
+            referencedTableName="List_Song"/>
     </changeSet>
 </databaseChangeLog> 
