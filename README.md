@@ -1,5 +1,12 @@
-# Exam Liquibase - Eduardo Pacreu
-Informacion de Liquibase con: [Javier](https://github.com/IngJavierR/liquibase)
+# Exam Week 2 - Liquibase - Eduardo Pacreu
+Informacion de Liquibase con: [Ing. Javier Rodriquez](https://github.com/IngJavierR/liquibase)
+# Exam Week 2 - Design Pattern - Eduardo Pacreu
+## Design Pattern Strategy
+
+Pienso que el patron de diseño "Strategy" es el mas adecuado para este problema, ya que este problema busca enviar a los consumidores la canción, la cual se puede interpretar como una accion que tienen en común, ya simplemente se crea una estrategia para cada cliente de como se enviara la canción.
+
+Al momento en el que se le notifica al sistema que un usuario ha realizado el pago, se identifica al usuario y se le envia la canción. 
+
 ## Source Control for your database
 
 Es una libreria opensource para el manejo y ejecución de cambios en base de datos.
@@ -34,6 +41,3 @@ Mas detalles en:
 ### Generar un changelog de diferencias
 
     liquibase --changeLogFile="changesets/db.changelog-#.#.#.#.xml" diffChangeLog
-
-#### Git Flow Rules
-#### Hola XD
